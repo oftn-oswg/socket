@@ -1,6 +1,9 @@
 package socket
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestParse(t *testing.T) {
 	tests := []struct {
@@ -35,5 +38,30 @@ func TestParse(t *testing.T) {
 			t.Errorf("For input %q: Expected %q, %q but got %q, %q",
 				test.Input, test.Network, test.Address, network, address)
 		}
+	}
+}
+
+func TestListen(t *testing.T) {
+	file := "sock.test"
+	mode := os.FileMode(0630)
+
+	listener, err := Listen("unix", file, mode)
+	if err != nil {
+		t.Errorf("Could not create socket: %s", err)
+		return
+	}
+	defer listener.Close()
+
+	// Test that socket has correct file mode
+	info, err := os.Stat(file)
+	if err != nil {
+		t.Errorf("Could not stat socket: %s", err)
+		return
+	}
+
+	actual := info.Mode().Perm()
+	if actual != mode {
+		t.Errorf("Expected socket mode of %d, got %d", mode, actual)
+		return
 	}
 }
