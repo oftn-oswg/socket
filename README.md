@@ -1,4 +1,4 @@
-# socket [![Go Report Card](https://goreportcard.com/badge/github.com/oftn-oswg/socket)](https://goreportcard.com/report/github.com/oftn-oswg/socket) [![GoDoc](https://godoc.org/github.com/oftn-oswg/socket?status.svg)](https://godoc.org/github.com/oftn-oswg/socket)
+# socket  [![GoDoc](https://godoc.org/github.com/oftn-oswg/socket?status.svg)](https://godoc.org/github.com/oftn-oswg/socket) [![Go Report Card](https://goreportcard.com/badge/github.com/oftn-oswg/socket)](https://goreportcard.com/report/github.com/oftn-oswg/socket) [![Coverage](http://gocover.io/_badge/github.com/oftn-oswg/socket)](http://gocover.io/github.com/oftn-oswg/socket)
 
 Go package to parse socket names described in [Nginx convention][nginx-listen].
 
